@@ -1,4 +1,4 @@
-﻿CREATE TABLE Categoria(
+﻿CREATE TABLE Anime(
 	AnimeID INT PRIMARY KEY IDENTITY (1,1),
 	NomeAnime VARCHAR(200) NOT NULL,
 	Vizualizacoes INT DEFAULT 0,
@@ -11,10 +11,10 @@ CREATE TABLE Destaque(
 	QtEpisodios VARCHAR(10) NOT NULL,
 	Posicao INT,
 	AnimeID INT,
-	CONSTRAINT FK_AnimeID FOREIGN KEY (AnimeID) REFERENCES Categoria(AnimeID)
+	CONSTRAINT FK_AnimeID FOREIGN KEY (AnimeID) REFERENCES Anime(AnimeID)
 );
 
-INSERT INTO Categoria(NomeAnime, Descricao)
+INSERT INTO Anime(NomeAnime, Descricao)
 VALUES ('One Piece', 'Há muito tempo, o infame Gol D. Roger era o pirata mais forte e poderoso dos mares. Quando estava prestes a ser executado, ele revelou que escondeu toda a sua riqueza, incluindo o lendário tesouro conhecido como One Piece, em uma ilha no final da Grand Line, um mar traiçoeiro e verdadeiramente imprevisível. Monkey D. Luffy é um jovem espirituoso, enérgico e um tanto estúpido com um grande sonho: encontrar One Piece e se tornar o Rei dos Piratas!'),
        ('Kinsou no Vermeil', 'Conheça Alto, um estudante infeliz da Royal Ortigia Magic Academy cujo desempenho acadêmico deixa muito a desejar. Em vez de adotar uma abordagem mais sensata para recuperar suas notas a tempo da formatura, Alto decide convocar um pouco de assistência sobrenatural. Só depois ele descobre que vinculou a lendária diaba Vermeil ao serviço como seu familiar! Mas enquanto Vermeil é um poderoso aliado que certamente mudará suas notas, sua magia só pode ser reabastecida com um beijo, e isso faz tudo virar um inferno com a ciumenta amiga de infância de Alto, Lilia.'),
 	   ('Summertime Render', 'Depois que seus pais morreram, Shinpei Ajiro viveu com as irmãs Kofune, Mio e Ushio, mas desde então ele se mudou para morar sozinho em Tóquio. Mas depois que Ushio se afoga enquanto tenta salvar a jovem Shiori Kobayakawa, ele volta para casa para lamentar sua partida. No entanto, hematomas no pescoço de Ushio questionam a causa de sua morte. Dando um passo para trás, Shinpei se convence de que deve haver outra explicação. Entidades perigosas vagam entre os ilhéus, e uma visão do falecido Ushio pede a ele para "salvar Mio" como seu pedido final. Ele tem certeza de que algo está acontecendo – e a morte de Ushio é apenas uma peça do quebra-cabeça. Com a ajuda de Mio e vários outros, Shinpei luta para forjar um futuro no qual ele, seus amigos e familiares possam permanecer vivos. Mas quanto mais ele investiga, mais impossível esse futuro parece. Essa escuridão se infiltra em sua ilha natal. Quanto mais sofrimento ele passará antes de encontrar o caminho certo para salvar tudo?'),
@@ -33,21 +33,21 @@ VALUES (1,1043),
 		(null ,23);
 
 SELECT *
-FROM Categoria c
+FROM Anime c
 INNER JOIN Destaque d ON c.AnimeID = d.AnimeID 
 
 SELECT *
-FROM Categoria c
+FROM Anime c
 LEFT JOIN Destaque d ON c.AnimeID = d.AnimeID 
 
---SELECT * FROM Categoria
+--SELECT * FROM Anime
 --SELECT * FROM Destaque
 
---sp_help Categoria
+--sp_help Anime
 --sp_help Destaque
 
---TRUNCATE TABLE Categoria
+--TRUNCATE TABLE Anime
 --TRUNCATE TABLE Destaque
 
---DROP TABLE Destaque
---DROP TABLE Categoria
+DROP TABLE Destaque
+DROP TABLE Categoria
