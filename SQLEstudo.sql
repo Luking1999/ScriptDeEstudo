@@ -1,23 +1,18 @@
 ﻿CREATE TABLE Categoria(
 	AnimeID INT PRIMARY KEY IDENTITY (1,1),
-	NomeAnime VARCHAR(30) NOT NULL,
+	NomeAnime VARCHAR(200) NOT NULL,
 	Vizualizacoes INT DEFAULT 0,
 	Favoritos INT DEFAULT 0,
-	Descricao VARCHAR(250),
+	Descricao VARCHAR(2000),
 	NumEpi INT DEFAULT 1
 );
 CREATE TABLE Destaque(
 	DestaqueID INT PRIMARY KEY IDENTITY(1,1),
-	NomeAnime VARCHAR(200) NOT NULL,
 	QtEpisodios VARCHAR(10) NOT NULL,
 	Posicao INT,
 	AnimeID INT,
 	CONSTRAINT FK_AnimeID FOREIGN KEY (AnimeID) REFERENCES Categoria(AnimeID)
 );
-
-ALTER TABLE Categoria ALTER COLUMN Descricao VARCHAR(2000)
-ALTER TABLE Categoria ALTER COLUMN NomeAnime VARCHAR(200)
-ALTER TABLE Destaque DROP COLUMN NomeAnime 
 
 INSERT INTO Categoria(NomeAnime, Descricao)
 VALUES ('One Piece', 'Há muito tempo, o infame Gol D. Roger era o pirata mais forte e poderoso dos mares. Quando estava prestes a ser executado, ele revelou que escondeu toda a sua riqueza, incluindo o lendário tesouro conhecido como One Piece, em uma ilha no final da Grand Line, um mar traiçoeiro e verdadeiramente imprevisível. Monkey D. Luffy é um jovem espirituoso, enérgico e um tanto estúpido com um grande sonho: encontrar One Piece e se tornar o Rei dos Piratas!'),
@@ -45,14 +40,14 @@ SELECT *
 FROM Categoria c
 LEFT JOIN Destaque d ON c.AnimeID = d.AnimeID 
 
-SELECT * FROM Categoria
-SELECT * FROM Destaque
+--SELECT * FROM Categoria
+--SELECT * FROM Destaque
 
-sp_help Categoria
-sp_help Destaque
+--sp_help Categoria
+--sp_help Destaque
 
-TRUNCATE TABLE Categoria
-TRUNCATE TABLE Destaque
+--TRUNCATE TABLE Categoria
+--TRUNCATE TABLE Destaque
 
-DROP TABLE Destaque
-DROP TABLE Categoria
+--DROP TABLE Destaque
+--DROP TABLE Categoria
