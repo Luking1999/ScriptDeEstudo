@@ -49,5 +49,5 @@ LEFT JOIN Destaque d ON c.AnimeID = d.AnimeID
 --TRUNCATE TABLE Anime
 --TRUNCATE TABLE Destaque
 
-DROP TABLE Destaque
-DROP TABLE Categoria
+--DROP TABLE Destaque
+--DROP TABLE Categoria
